@@ -12,10 +12,10 @@ RUN adduser -D -g 'www' www && \
 	mkdir -p /run/nginx
 
 #add user for ssh
-RUN adduser -D Thimo -h / && \
-	echo "Thimo:Harry" | chpasswd
+RUN adduser -D thimo -h / && \
+	echo "thimo:harry" | chpasswd
 
-RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/rem.key -out /etc/ssl/rem.crt -subj '/C=NL/ST=Noord-Holland/L=Amsterdam/O=Codam/CN=ft_services'
+RUN openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout /etc/ssl/thimo.key -out /etc/ssl/thimo.crt -subj '/C=NL/ST=Noord-Holland/L=Amsterdam/O=Codam/CN=ft_services'
 
 COPY nginx.conf /etc/nginx/nginx.conf
 COPY sshd_config /etc/ssh/sshd_config
